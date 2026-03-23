@@ -10,16 +10,16 @@ const qualifications = [
 ];
 
 const team = [
-  { name: "Dr. Arjun Mehta", role: "Chief Dentist & Founder", avatar: "AM", emoji: "👨‍⚕️" },
-  { name: "Neha Kapoor", role: "Dental Assistant", avatar: "NK", emoji: "👩‍⚕️" },
-  { name: "Sunita Rao", role: "Front Desk Receptionist", avatar: "SR", emoji: "🧑‍💼" },
+  { name: "Dr. Arjun Mehta", role: "Chief Dentist & Founder", initials: "AM" },
+  { name: "Neha Kapoor", role: "Dental Assistant", initials: "NK" },
+  { name: "Sunita Rao", role: "Front Desk Receptionist", initials: "SR" },
 ];
 
 const gallery = [
-  { label: "Reception", bg: "from-primary/15 to-accent/10", emoji: "🛋️" },
-  { label: "Treatment Room", bg: "from-accent/15 to-primary/10", emoji: "🦷" },
-  { label: "Waiting Area", bg: "from-primary/10 to-muted", emoji: "🪑" },
-  { label: "Equipment", bg: "from-accent/10 to-primary/15", emoji: "🔬" },
+  { label: "Reception", color: "hsl(192 40% 90%)" },
+  { label: "Treatment Room", color: "hsl(192 30% 84%)" },
+  { label: "Waiting Area", color: "hsl(38 30% 88%)" },
+  { label: "Equipment", color: "hsl(192 20% 88%)" },
 ];
 
 export default function About() {
@@ -28,163 +28,242 @@ export default function About() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4 }}
+      style={{ backgroundColor: "#F7F4EF" }}
     >
       <Navbar />
 
-      {/* Hero */}
-      <section className="pt-28 pb-20 bg-gradient-to-br from-primary/5 via-background to-accent/5 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-72 h-72 rounded-full bg-accent/8 blur-3xl" />
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-            {/* Doctor image placeholder */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="relative"
+      {/* Doctor Hero — full-bleed editorial split */}
+      <section style={{ minHeight: "90vh", display: "flex", backgroundColor: "#F7F4EF" }}>
+        {/* Left image — 45% */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="hidden lg:block"
+          style={{ width: "45%", position: "relative", flexShrink: 0 }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: "linear-gradient(160deg, hsl(192 40% 80%) 0%, hsl(192 55% 65%) 60%, hsl(192 73% 50%) 100%)",
+              display: "flex",
+              alignItems: "flex-end",
+              justifyContent: "center",
+              paddingBottom: 48,
+            }}
+          >
+            {/* Decorative overlay */}
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                backgroundImage: `radial-gradient(circle at 30% 70%, rgba(255,255,255,0.12) 0%, transparent 60%)`,
+              }}
+            />
+            {/* Doctor placeholder visual */}
+            <div
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -60%)",
+                textAlign: "center",
+              }}
             >
-              <div className="relative max-w-sm mx-auto">
-                <div className="absolute -inset-4 rounded-3xl bg-accent/10 blur-xl" />
-                <div className="relative bg-gradient-to-br from-primary/15 to-accent/10 rounded-3xl p-12 flex flex-col items-center justify-center aspect-[3/4] shadow-float border border-border/50">
-                  <div className="text-8xl mb-4">👨‍⚕️</div>
-                  <div className="text-center">
-                    <p className="font-bold text-primary text-xl">Dr. Arjun Mehta</p>
-                    <p className="text-muted-foreground text-sm mt-1">BDS, MDS – Orthodontics</p>
-                    <p className="text-muted-foreground text-sm">15+ Years Experience</p>
-                  </div>
-                  {/* Badge */}
-                  <div className="absolute -bottom-4 -right-4 bg-card rounded-2xl shadow-float px-4 py-2.5 border border-border/50">
-                    <p className="text-xs font-bold text-foreground">1200+ Patients Treated</p>
-                    <div className="flex gap-0.5 mt-0.5">
-                      {"★★★★★".split("").map((s, i) => <span key={i} className="text-yellow-400 text-xs">{s}</span>)}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Bio */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.15 }}
-              className="space-y-6"
-            >
-              <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-primary text-sm font-semibold">
-                Meet the Doctor
-              </span>
-              <h1 className="text-3xl md:text-4xl xl:text-5xl font-extrabold text-primary leading-tight">
-                About Dr. Arjun Mehta
-              </h1>
-              <p className="text-muted-foreground text-base leading-relaxed">
-                Dr. Arjun Mehta is a BDS/MDS qualified dentist with over 15 years of experience in comprehensive dental care. Known for a gentle approach and precision treatment, he has helped over 1,200 patients rediscover their confidence through better oral health.
-              </p>
-              <p className="text-muted-foreground text-base leading-relaxed">
-                Specialising in Orthodontics and cosmetic dentistry, Dr. Mehta combines the latest technology with a deeply compassionate, patient-first philosophy. Every visit to SmileCare Dental is designed to be comfortable, transparent, and anxiety-free.
-              </p>
-              <Link
-                to="/appointment"
-                className="inline-flex items-center px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all shadow-card hover:shadow-card-hover hover:-translate-y-0.5"
+              <div
+                style={{
+                  width: 140,
+                  height: 140,
+                  borderRadius: "50%",
+                  background: "rgba(255,255,255,0.18)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: 64,
+                  margin: "0 auto 20px",
+                  border: "2px solid rgba(255,255,255,0.3)",
+                }}
               >
-                Book a Consultation →
-              </Link>
+                👨‍⚕️
+              </div>
+              <p style={{ fontFamily: "Playfair Display, serif", fontSize: 20, color: "white", fontWeight: 400 }}>Dr. Arjun Mehta</p>
+              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 12, color: "rgba(255,255,255,0.75)", letterSpacing: "0.12em", textTransform: "uppercase", marginTop: 6 }}>BDS, MDS – Orthodontics</p>
+            </div>
+            {/* Floating credential */}
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+              style={{
+                background: "white",
+                borderRadius: 14,
+                padding: "14px 22px",
+                boxShadow: "0 8px 32px rgba(13,79,92,0.18)",
+                position: "absolute",
+                bottom: 48,
+                right: -24,
+                zIndex: 10,
+              }}
+            >
+              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 12, fontWeight: 500, color: "#1A1A1A" }}>1200+ Patients Treated</p>
+              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 11, color: "#6B6B6B", marginTop: 2 }}>15+ Years of Practice</p>
             </motion.div>
           </div>
-        </div>
+        </motion.div>
+
+        {/* Right bio — 55%, lots of top padding */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          style={{
+            flex: 1,
+            paddingLeft: "clamp(40px, 6vw, 96px)",
+            paddingRight: "clamp(32px, 4vw, 80px)",
+            paddingTop: "clamp(120px, 18vh, 180px)",
+            paddingBottom: 80,
+          }}
+        >
+          <p className="label-caps mb-6">Meet the Doctor</p>
+          <h1
+            className="font-display text-primary"
+            style={{ fontSize: "clamp(36px, 4vw, 52px)", fontWeight: 400, lineHeight: 1.1, marginBottom: 32 }}
+          >
+            About Dr.
+            <br />
+            <em>Arjun Mehta</em>
+          </h1>
+          <div style={{ width: 48, height: 3, background: "hsl(38 50% 61%)", marginBottom: 32 }} />
+          <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 16, color: "#4A4A4A", lineHeight: 1.8, marginBottom: 20, maxWidth: 520 }}>
+            Dr. Arjun Mehta is a BDS/MDS qualified dentist with over 15 years of experience in comprehensive dental care. Known for a gentle approach and precision treatment, he has helped over 1,200 patients rediscover their confidence through better oral health.
+          </p>
+          <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 16, color: "#4A4A4A", lineHeight: 1.8, marginBottom: 40, maxWidth: 520 }}>
+            Specialising in Orthodontics and cosmetic dentistry, Dr. Mehta combines the latest technology with a deeply compassionate, patient-first philosophy. Every visit to SmileCare Dental is designed to be comfortable, transparent, and anxiety-free.
+          </p>
+          <Link to="/appointment" className="pill-outline-btn">
+            Book a Consultation →
+          </Link>
+        </motion.div>
       </section>
 
       {/* Clinic Story */}
-      <section className="py-20 bg-muted/40">
-        <div className="container mx-auto px-4 max-w-3xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
-          >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-primary text-sm font-semibold">
-              Our Story
-            </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-primary">
-              Our Clinic's Mission
-            </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              SmileCare Dental was founded on a simple belief: <strong className="text-primary">quality dental care should be accessible and anxiety-free for everyone.</strong> We've built a space where cutting-edge technology meets warmth and genuine care — where every patient leaves feeling confident, informed, and smiling.
-            </p>
-            <p className="text-muted-foreground text-base leading-relaxed">
-              From our state-of-the-art sterilisation protocols to our transparent pricing and zero-wait booking system, every detail at SmileCare Dental is designed with your comfort and trust in mind.
-            </p>
-          </motion.div>
+      <section className="bg-section-alt" style={{ paddingTop: 100, paddingBottom: 100 }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto", paddingLeft: 32, paddingRight: 32 }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <p className="label-caps mb-4">Our Story</p>
+              <h2 className="font-display text-primary" style={{ fontSize: 38, fontWeight: 400, lineHeight: 1.2 }}>
+                Our Clinic's
+                <br /><em>Mission</em>
+              </h2>
+              <div style={{ width: 48, height: 3, background: "hsl(38 50% 61%)", marginTop: 16 }} />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.12 }}
+            >
+              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 16, color: "#4A4A4A", lineHeight: 1.8, marginBottom: 20 }}>
+                SmileCare Dental was founded on a simple belief: quality dental care should be accessible and anxiety-free for everyone. We've built a space where cutting-edge technology meets warmth and genuine care.
+              </p>
+              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 16, color: "#4A4A4A", lineHeight: 1.8 }}>
+                From our state-of-the-art sterilisation protocols to our transparent pricing and zero-wait booking system, every detail at SmileCare Dental is designed with your comfort and trust in mind.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Qualifications */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
+      <section style={{ backgroundColor: "#F7F4EF", paddingTop: 100, paddingBottom: 100 }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto", paddingLeft: 32, paddingRight: 32 }}>
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            transition={{ duration: 0.5 }}
+            className="mb-12 text-center"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-primary text-sm font-semibold mb-4">
-              Credentials
-            </span>
-            <h2 className="text-3xl font-extrabold text-primary">Qualifications</h2>
+            <p className="label-caps mb-4">Credentials</p>
+            <h2 className="font-display text-primary" style={{ fontSize: 38, fontWeight: 400 }}>Qualifications</h2>
           </motion.div>
-          <div className="flex flex-wrap justify-center gap-6">
+
+          {/* Inline horizontal credentials — separated by dots */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="flex flex-wrap items-center justify-center gap-0"
+          >
             {qualifications.map((q, i) => (
-              <motion.div
-                key={q.degree}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="bg-card border border-border rounded-2xl px-8 py-6 shadow-card text-center max-w-xs"
-              >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-xl mx-auto mb-4">🎓</div>
-                <h3 className="font-extrabold text-primary text-xl mb-1">{q.degree}</h3>
-                <p className="text-muted-foreground text-sm">{q.school}</p>
-                <span className="inline-block mt-3 px-3 py-1 rounded-full bg-accent/10 text-primary text-xs font-semibold">{q.year}</span>
-              </motion.div>
+              <div key={q.degree} className="flex items-center">
+                {i > 0 && (
+                  <span style={{ fontFamily: "DM Sans, sans-serif", fontSize: 18, color: "hsl(38 50% 61%)", margin: "0 24px" }}>·</span>
+                )}
+                <div className="text-center" style={{ padding: "0 8px" }}>
+                  <p className="font-display text-primary" style={{ fontSize: 20, fontWeight: 500 }}>{q.degree}</p>
+                  <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 13, color: "#6B6B6B", marginTop: 4 }}>{q.school}</p>
+                  <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 11, color: "hsl(38 50% 61%)", letterSpacing: "0.12em", textTransform: "uppercase", marginTop: 4, fontWeight: 500 }}>{q.year}</p>
+                </div>
+              </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Team */}
-      <section className="py-20 bg-muted/40">
-        <div className="container mx-auto px-4">
+      <section className="bg-section-alt" style={{ paddingTop: 100, paddingBottom: 100 }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto", paddingLeft: 32, paddingRight: 32 }}>
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            transition={{ duration: 0.5 }}
+            className="mb-14"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-primary text-sm font-semibold mb-4">
-              Our People
-            </span>
-            <h2 className="text-3xl font-extrabold text-primary">Meet the Team</h2>
-            <p className="text-muted-foreground mt-3">A caring team dedicated to your smile.</p>
+            <p className="label-caps mb-4">Our People</p>
+            <h2 className="font-display text-primary" style={{ fontSize: 38, fontWeight: 400 }}>Meet the Team</h2>
+            <div style={{ width: 48, height: 3, background: "hsl(38 50% 61%)", marginTop: 16 }} />
           </motion.div>
-          <div className="flex flex-wrap justify-center gap-6">
+
+          <div className="grid grid-cols-3 gap-8">
             {team.map((member, i) => (
               <motion.div
                 key={member.name}
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-card rounded-2xl p-8 shadow-card border border-border/50 text-center w-56 hover:-translate-y-1 transition-transform duration-300"
               >
-                <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center text-4xl mx-auto mb-4">
-                  {member.emoji}
+                {/* Portrait ratio 3:4 */}
+                <div
+                  style={{
+                    aspectRatio: "3/4",
+                    borderRadius: 12,
+                    marginBottom: 16,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    background: i === 0
+                      ? "linear-gradient(160deg, hsl(192 40% 82%) 0%, hsl(192 55% 68%) 100%)"
+                      : i === 1
+                        ? "linear-gradient(160deg, hsl(38 30% 85%) 0%, hsl(38 40% 75%) 100%)"
+                        : "linear-gradient(160deg, hsl(192 20% 85%) 0%, hsl(192 30% 75%) 100%)",
+                    fontSize: 48,
+                    color: "rgba(255,255,255,0.9)",
+                  }}
+                >
+                  {member.initials}
                 </div>
-                <h3 className="font-bold text-primary text-base">{member.name}</h3>
-                <p className="text-muted-foreground text-sm mt-1">{member.role}</p>
+                <p className="font-display text-primary" style={{ fontSize: 17, fontWeight: 400, marginBottom: 4 }}>{member.name}</p>
+                <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 11, color: "hsl(38 50% 55%)", textTransform: "uppercase", letterSpacing: "0.14em", fontWeight: 500 }}>{member.role}</p>
               </motion.div>
             ))}
           </div>
@@ -192,33 +271,55 @@ export default function About() {
       </section>
 
       {/* Gallery */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
+      <section style={{ backgroundColor: "#F7F4EF", paddingTop: 100, paddingBottom: 100 }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto", paddingLeft: 32, paddingRight: 32 }}>
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            transition={{ duration: 0.5 }}
+            className="mb-14"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-primary text-sm font-semibold mb-4">
-              Our Space
-            </span>
-            <h2 className="text-3xl font-extrabold text-primary">Clinic Gallery</h2>
-            <p className="text-muted-foreground mt-3">A modern, welcoming environment designed for your comfort.</p>
+            <p className="label-caps mb-4">Our Space</p>
+            <h2 className="font-display text-primary" style={{ fontSize: 38, fontWeight: 400 }}>Clinic Gallery</h2>
+            <div style={{ width: 48, height: 3, background: "hsl(38 50% 61%)", marginTop: 16 }} />
           </motion.div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+          {/* Asymmetric gallery grid: 1 large left + 3 right stacked */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {gallery.map((g, i) => (
               <motion.div
                 key={g.label}
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.97 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className={`bg-gradient-to-br ${g.bg} rounded-2xl aspect-square flex flex-col items-center justify-center shadow-card border border-border/50 hover:-translate-y-1 transition-transform duration-300`}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                style={{
+                  background: g.color,
+                  borderRadius: 12,
+                  aspectRatio: i === 0 ? "4/3" : "1/1",
+                  gridColumn: i === 0 ? "span 2 / span 2" : undefined,
+                  display: "flex",
+                  alignItems: "flex-end",
+                  padding: 20,
+                  position: "relative",
+                  overflow: "hidden",
+                }}
+                className="md:col-span-1"
               >
-                <div className="text-5xl mb-3">{g.emoji}</div>
-                <p className="text-sm font-semibold text-primary">{g.label}</p>
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    background: "linear-gradient(to top, rgba(13,79,92,0.4) 0%, transparent 60%)",
+                  }}
+                />
+                <p
+                  className="font-sans-dm relative z-10"
+                  style={{ fontSize: 13, color: "white", fontWeight: 500, letterSpacing: "0.06em" }}
+                >
+                  {g.label}
+                </p>
               </motion.div>
             ))}
           </div>

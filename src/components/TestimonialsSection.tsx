@@ -1,84 +1,116 @@
 import { motion } from "framer-motion";
 
-const testimonials = [
-  {
-    name: "Priya Sharma",
-    role: "Software Engineer",
-    avatar: "PS",
-    stars: 5,
-    quote:
-      "I had extreme dental anxiety, but Dr. Mehta made me feel completely at ease. The root canal was absolutely painless — I couldn't believe it. The clinic is spotless and the staff is incredibly kind.",
-  },
+const featured = {
+  name: "Priya Sharma",
+  role: "Software Engineer",
+  quote:
+    "I had extreme dental anxiety, but Dr. Mehta made me feel completely at ease. The root canal was absolutely painless — I couldn't believe it. The clinic is spotless and the staff is incredibly kind.",
+};
+
+const secondary = [
   {
     name: "Rahul Verma",
     role: "Business Owner",
-    avatar: "RV",
-    stars: 5,
     quote:
-      "Best dental experience I've ever had! Got my Invisalign done here and the results are stunning. The team is professional, the clinic is state-of-the-art, and the pricing is very fair.",
+      "Best dental experience I've ever had! Got my Invisalign done here and the results are stunning. Professional team, state-of-the-art clinic, and very fair pricing.",
   },
   {
     name: "Anita Patel",
     role: "Teacher",
-    avatar: "AP",
-    stars: 5,
     quote:
-      "Took my 7-year-old daughter here and she actually enjoyed the visit! The pediatric dentist was so patient and playful with her. Our whole family now visits SmileCare for everything.",
+      "Took my 7-year-old daughter here and she actually enjoyed the visit! The pediatric dentist was so patient with her. Our whole family now visits SmileCare.",
   },
 ];
 
 export default function TestimonialsSection() {
   return (
-    <section className="py-24 bg-background">
-      <div className="container mx-auto px-4">
+    <section className="bg-section-alt" style={{ paddingTop: 120, paddingBottom: 120 }}>
+      <div style={{ maxWidth: 1100, margin: "0 auto", paddingLeft: 32, paddingRight: 32 }}>
+        {/* Section label */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-16"
+        >
+          <p className="label-caps mb-4">Patient Reviews</p>
+          <h2 className="font-display text-primary" style={{ fontSize: 42, fontWeight: 400, lineHeight: 1.15 }}>
+            What Our Patients Say
+          </h2>
+          <div className="section-divider mt-5" />
+        </motion.div>
+
+        {/* Featured testimonial */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="relative mb-16"
+          style={{ paddingBottom: 56, borderBottom: "1px solid #E5E0D8" }}
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-primary text-sm font-semibold mb-4">
-            Patient Reviews
-          </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-primary mb-4">
-            What Our Patients Say
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            Real stories from real patients who trusted us with their smiles.
-          </p>
+          {/* Giant decorative quote */}
+          <div
+            className="font-display absolute top-[-24px] left-[-8px] select-none pointer-events-none"
+            style={{ fontSize: 160, color: "#F0EBE1", lineHeight: 1, zIndex: 0 }}
+            aria-hidden="true"
+          >
+            "
+          </div>
+
+          <div className="relative z-10" style={{ maxWidth: 720 }}>
+            <p
+              className="font-display"
+              style={{ fontSize: "clamp(18px, 2.2vw, 24px)", color: "#1A1A1A", fontWeight: 400, lineHeight: 1.6, fontStyle: "italic" }}
+            >
+              "{featured.quote}"
+            </p>
+            <div className="mt-8 flex items-center gap-3">
+              <div
+                style={{
+                  width: 40,
+                  height: 40,
+                  borderRadius: "50%",
+                  background: "hsl(192 73% 20% / 0.1)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: 13,
+                  fontWeight: 500,
+                  color: "hsl(192 73% 20%)",
+                  fontFamily: "DM Sans, sans-serif",
+                  flexShrink: 0,
+                }}
+              >
+                {featured.name.split(" ").map((n) => n[0]).join("")}
+              </div>
+              <div>
+                <p style={{ fontFamily: "DM Sans, sans-serif", fontWeight: 500, fontSize: 14, color: "#1A1A1A" }}>{featured.name}</p>
+                <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 12, color: "#6B6B6B" }}>{featured.role}</p>
+              </div>
+            </div>
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((t, i) => (
+        {/* Two smaller testimonials */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          {secondary.map((t, i) => (
             <motion.div
               key={t.name}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-card rounded-2xl p-7 shadow-card border border-border/50 flex flex-col"
+              transition={{ duration: 0.5, delay: i * 0.12 }}
+              className="gold-border-left"
             >
-              {/* Stars */}
-              <div className="flex gap-1 mb-4">
-                {Array.from({ length: t.stars }).map((_, j) => (
-                  <span key={j} className="text-yellow-400 text-lg">★</span>
-                ))}
-              </div>
-
-              <p className="text-muted-foreground text-sm leading-relaxed flex-1 mb-6 italic">
+              <p
+                style={{ fontFamily: "DM Sans, sans-serif", fontSize: 15, color: "#4A4A4A", lineHeight: 1.7, fontStyle: "italic", marginBottom: 16 }}
+              >
                 "{t.quote}"
               </p>
-
-              <div className="flex items-center gap-3 border-t border-border pt-5">
-                <div className="w-10 h-10 rounded-full bg-primary/15 flex items-center justify-center text-primary font-bold text-sm flex-shrink-0">
-                  {t.avatar}
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground text-sm">{t.name}</p>
-                  <p className="text-muted-foreground text-xs">{t.role}</p>
-                </div>
-              </div>
+              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 13, fontWeight: 500, color: "#1A1A1A" }}>{t.name}</p>
+              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 12, color: "#6B6B6B" }}>{t.role}</p>
             </motion.div>
           ))}
         </div>

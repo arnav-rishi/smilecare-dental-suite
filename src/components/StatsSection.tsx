@@ -1,21 +1,17 @@
 import { motion } from "framer-motion";
 
 const stats = [
-  { num: "1200+", label: "Happy Patients", icon: "😊" },
-  { num: "15+", label: "Years Experience", icon: "🏆" },
-  { num: "10+", label: "Treatments Offered", icon: "🦷" },
-  { num: "5-Star", label: "Rated Clinic", icon: "⭐" },
+  { num: "1200+", label: "Happy Patients" },
+  { num: "15+", label: "Years Experience" },
+  { num: "10+", label: "Treatments Offered" },
+  { num: "5-Star", label: "Rated Clinic" },
 ];
 
 export default function StatsSection() {
   return (
-    <section className="py-20 bg-primary relative overflow-hidden">
-      {/* Decorative blobs */}
-      <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-accent/10 blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-white/5 blur-2xl" />
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+    <section style={{ backgroundColor: "hsl(192 73% 20%)", paddingTop: 100, paddingBottom: 100 }}>
+      <div style={{ maxWidth: 1100, margin: "0 auto", paddingLeft: 32, paddingRight: 32 }}>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-0">
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
@@ -23,13 +19,27 @@ export default function StatsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="text-center"
+              className="text-center relative"
+              style={{ padding: "0 24px" }}
             >
-              <div className="text-3xl mb-3">{s.icon}</div>
-              <div className="text-4xl md:text-5xl font-extrabold text-accent mb-2 leading-none">
+              {i > 0 && (
+                <div
+                  className="absolute left-0 top-1/2 -translate-y-1/2 hidden lg:block"
+                  style={{ width: 1, height: 60, background: "hsl(38 50% 61% / 0.5)" }}
+                />
+              )}
+              <div
+                className="font-display"
+                style={{ fontSize: 52, color: "white", fontWeight: 400, lineHeight: 1, marginBottom: 12 }}
+              >
                 {s.num}
               </div>
-              <div className="text-primary-foreground/80 text-sm font-medium">{s.label}</div>
+              <div
+                className="font-sans-dm"
+                style={{ fontSize: 12, textTransform: "uppercase", letterSpacing: "0.15em", color: "rgba(255,255,255,0.55)", fontWeight: 400 }}
+              >
+                {s.label}
+              </div>
             </motion.div>
           ))}
         </div>
