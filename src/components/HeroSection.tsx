@@ -1,167 +1,152 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-const DentalClinicIllustration = () => (
-  <div className="relative w-full max-w-lg mx-auto">
-    {/* Floating background blobs */}
-    <div className="absolute -top-6 -right-6 w-48 h-48 rounded-full bg-accent/10 blur-2xl" />
-    <div className="absolute -bottom-6 -left-6 w-32 h-32 rounded-full bg-primary/10 blur-xl" />
-
-    {/* Main card */}
-    <div className="relative bg-card rounded-3xl shadow-float overflow-hidden border border-border/50">
-      {/* Clinic interior mock */}
-      <div className="bg-gradient-to-br from-primary/8 to-accent/5 p-8">
-        <div className="flex items-start gap-4 mb-6">
-          <div className="w-14 h-14 rounded-2xl bg-primary/15 flex items-center justify-center text-2xl flex-shrink-0">
-            🦷
-          </div>
-          <div>
-            <h3 className="font-bold text-primary text-lg">SmileCare Dental</h3>
-            <p className="text-muted-foreground text-sm">Mumbai's trusted dental clinic</p>
-            <div className="flex items-center gap-1 mt-1">
-              {"★★★★★".split("").map((s, i) => (
-                <span key={i} className="text-yellow-400 text-sm">
-                  {s}
-                </span>
-              ))}
-              <span className="text-muted-foreground text-xs ml-1">5.0 (240 reviews)</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Stats row */}
-        <div className="grid grid-cols-3 gap-3 mb-6">
-          {[
-            { num: "1200+", label: "Patients" },
-            { num: "15+", label: "Years" },
-            { num: "10+", label: "Treatments" },
-          ].map((s) => (
-            <div key={s.label} className="bg-card rounded-2xl p-3 text-center shadow-card">
-              <div className="text-accent font-extrabold text-lg leading-tight">{s.num}</div>
-              <div className="text-muted-foreground text-xs">{s.label}</div>
-            </div>
-          ))}
-        </div>
-
-        {/* Service badges */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {["🦷 General Dentistry", "✨ Whitening", "🔲 Implants", "😁 Orthodontics"].map((tag) => (
-            <span key={tag} className="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        {/* Appointment next */}
-        <div className="bg-primary rounded-2xl p-4 flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center text-lg">📅</div>
-          <div>
-            <p className="text-primary-foreground text-sm font-semibold">Next Available Slot</p>
-            <p className="text-primary-foreground/70 text-xs">Today • 3:00 PM onwards</p>
-          </div>
-          <span className="ml-auto px-3 py-1 bg-accent rounded-xl text-white text-xs font-semibold">Book Now</span>
-        </div>
-      </div>
-    </div>
-
-    {/* Floating badge */}
-    <motion.div
-      animate={{ y: [0, -8, 0] }}
-      transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-      className="absolute -top-4 -left-4 bg-card rounded-2xl shadow-float px-4 py-2.5 flex items-center gap-2 border border-border/50"
-    >
-      <span className="text-xl">😊</span>
-      <div>
-        <p className="text-xs font-bold text-foreground">Pain-free treatment</p>
-        <p className="text-xs text-muted-foreground">Patient-first approach</p>
-      </div>
-    </motion.div>
-
-    {/* Floating badge 2 */}
-    <motion.div
-      animate={{ y: [0, 8, 0] }}
-      transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut", delay: 0.5 }}
-      className="absolute -bottom-4 -right-4 bg-card rounded-2xl shadow-float px-4 py-2.5 flex items-center gap-2 border border-border/50"
-    >
-      <span className="text-xl">✅</span>
-    </motion.div>
-  </div>
-);
-
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
-      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-accent/6 blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-primary/6 blur-3xl" />
+    <section
+      className="relative min-h-screen flex overflow-hidden"
+      style={{ backgroundColor: "#F7F4EF" }}
+    >
+      {/* Left text block — 55% */}
+      <div className="w-full lg:w-[55%] flex flex-col justify-center pt-[100px] pb-[100px] px-8 md:px-16 xl:px-24 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="max-w-[560px]"
+        >
+          {/* Gold label */}
+          <p className="label-caps mb-8">Trusted Dental Care · Mumbai</p>
 
-      <div className="container mx-auto px-4 py-16 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="space-y-8"
+          {/* H1 */}
+          <h1
+            className="font-display text-primary leading-[1.08] mb-6"
+            style={{ fontSize: "clamp(44px, 5vw, 64px)", fontWeight: 400 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-sm font-medium text-primary">
-              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              Trusted Dental Care in Mumbai
-            </div>
+            Confidence Starts
+            <br />
+            <em>With Your Smile</em>
+          </h1>
 
-            <h1 className="text-4xl md:text-5xl xl:text-6xl font-extrabold text-primary leading-tight">
-              Your Smile{" "}
-              <span className="relative">
-                Deserves
-                <span className="absolute bottom-1 left-0 w-full h-2 bg-accent/25 rounded-full -z-10" />
-              </span>{" "}
-              the Best Care
-            </h1>
-
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
-              Trusted dental care in Mumbai — from routine checkups to complete smile transformations. Experience
-              gentle, modern dentistry designed around you.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                to="/appointment"
-                className="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all shadow-card hover:shadow-card-hover hover:-translate-y-0.5 text-base"
-              >
-                Book Appointment
-              </Link>
-              <a
-                href="tel:+919876543210"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl border-2 border-primary text-primary font-semibold hover:bg-primary/5 transition-all text-base"
-              >
-                📞 Call Now
-              </a>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-6 pt-2">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <span className="text-green-500 font-bold">✓</span> No waiting time
-              </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <span className="text-green-500 font-bold">✓</span> Advanced equipment
-              </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <span className="text-green-500 font-bold">✓</span> Painless procedures
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right illustration */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+          {/* Subtext */}
+          <p
+            className="font-sans-dm mb-10 max-w-[400px]"
+            style={{ fontSize: "16px", color: "#6B6B6B", lineHeight: 1.7, fontWeight: 400 }}
           >
-            <DentalClinicIllustration />
+            Expert dental care from routine checkups to complete smile transformations — gentle, modern, anxiety-free.
+          </p>
+
+          {/* CTAs */}
+          <div className="flex flex-wrap items-center gap-6">
+            <Link to="/appointment" className="pill-outline-btn">
+              Book Appointment
+            </Link>
+            <Link
+              to="/#services"
+              className="font-sans-dm text-sm text-primary flex items-center gap-2 hover-slide-link"
+              style={{ fontWeight: 500, color: "#1A1A1A" }}
+            >
+              See Our Services →
+            </Link>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Right image panel — full height, rounded-left edge */}
+      <motion.div
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+        className="hidden lg:block absolute right-0 top-0 bottom-[-60px] w-[48%]"
+        style={{ borderRadius: "40px 0 0 40px", overflow: "hidden" }}
+      >
+        {/* Clinic visual placeholder */}
+        <div
+          className="w-full h-full flex flex-col items-center justify-center relative"
+          style={{ background: "linear-gradient(160deg, hsl(192 40% 88%) 0%, hsl(192 60% 78%) 50%, hsl(192 73% 66%) 100%)" }}
+        >
+          {/* Decorative overlays */}
+          <div
+            className="absolute inset-0 opacity-20"
+            style={{
+              backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,255,255,0.08) 40px, rgba(255,255,255,0.08) 80px)`,
+            }}
+          />
+
+          {/* Mock clinic card */}
+          <div
+            className="relative z-10 mx-8"
+            style={{
+              background: "rgba(255,255,255,0.88)",
+              backdropFilter: "blur(12px)",
+              borderRadius: "20px",
+              padding: "36px",
+              maxWidth: "360px",
+              boxShadow: "0 16px 64px rgba(13,79,92,0.18)",
+            }}
+          >
+            <p className="label-caps mb-4" style={{ color: "hsl(var(--gold))" }}>SmileCare Dental</p>
+            <div className="flex items-start gap-4 mb-6">
+              <div
+                style={{
+                  width: 52,
+                  height: 52,
+                  borderRadius: "50%",
+                  background: "hsl(192 73% 20% / 0.1)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: 24,
+                  flexShrink: 0,
+                }}
+              >
+                🦷
+              </div>
+              <div>
+                <p className="font-display text-primary" style={{ fontSize: 18, fontWeight: 500 }}>Dr. Arjun Mehta</p>
+                <p style={{ fontSize: 13, color: "#6B6B6B", fontFamily: "DM Sans, sans-serif" }}>BDS, MDS — 15+ Years Experience</p>
+              </div>
+            </div>
+            <div className="grid grid-cols-3 gap-3 mb-6">
+              {[{ n: "1200+", l: "Patients" }, { n: "15+", l: "Years" }, { n: "5.0", l: "Rating" }].map((s) => (
+                <div key={s.l} style={{ textAlign: "center", padding: "10px 4px", borderRadius: 10, background: "#F7F4EF" }}>
+                  <div className="font-display text-primary" style={{ fontSize: 18, fontWeight: 500 }}>{s.n}</div>
+                  <div style={{ fontSize: 11, color: "#6B6B6B", fontFamily: "DM Sans, sans-serif", textTransform: "uppercase", letterSpacing: "0.1em" }}>{s.l}</div>
+                </div>
+              ))}
+            </div>
+            <div style={{ borderTop: "1px solid #E8E2D9", paddingTop: 16 }}>
+              <p style={{ fontSize: 12, color: "#6B6B6B", fontFamily: "DM Sans, sans-serif", textAlign: "center" }}>
+                Next available: <span style={{ color: "hsl(192 73% 20%)", fontWeight: 500 }}>Today · 3:00 PM onwards</span>
+              </p>
+            </div>
+          </div>
+
+          {/* Floating badge */}
+          <motion.div
+            animate={{ y: [0, -8, 0] }}
+            transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut" }}
+            style={{
+              position: "absolute",
+              bottom: 80,
+              left: 24,
+              background: "white",
+              borderRadius: 14,
+              padding: "12px 18px",
+              boxShadow: "0 8px 32px rgba(13,79,92,0.14)",
+              display: "flex",
+              alignItems: "center",
+              gap: 10,
+            }}
+          >
+            <span style={{ fontSize: 18 }}>✅</span>
+            <div>
+              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 12, fontWeight: 500, color: "#1A1A1A" }}>ISO Certified Clinic</p>
+              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 11, color: "#6B6B6B" }}>World-class equipment</p>
+            </div>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
