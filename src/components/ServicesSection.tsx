@@ -2,93 +2,99 @@ import { motion } from "framer-motion";
 
 const services = [
   {
-    emoji: "🦷",
+    icon: "🦷",
     title: "General Dentistry",
     desc: "Cleanings, fillings & routine checkups to keep your smile healthy year-round.",
   },
   {
-    emoji: "✨",
+    icon: "✨",
     title: "Teeth Whitening",
     desc: "Professional-grade whitening treatments for a brighter, confident smile.",
   },
   {
-    emoji: "🦴",
+    icon: "🦴",
     title: "Root Canal Treatment",
     desc: "Pain-free RCT with modern rotary equipment and gentle techniques.",
   },
   {
-    emoji: "🔲",
+    icon: "🔲",
     title: "Dental Implants",
     desc: "Permanent replacements that look, feel, and function like natural teeth.",
   },
   {
-    emoji: "😁",
+    icon: "😁",
     title: "Orthodontics",
     desc: "Braces & clear aligners for a perfectly aligned smile, for all ages.",
   },
   {
-    emoji: "🧒",
+    icon: "🧒",
     title: "Pediatric Dentistry",
     desc: "Gentle, anxiety-free dental care specially tailored for children.",
   },
 ];
 
-const container = {
-  hidden: {},
-  show: {
-    transition: { staggerChildren: 0.1 },
-  },
-};
+const leftCol = services.slice(0, 3);
+const rightCol = services.slice(3, 6);
 
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
+function ServiceItem({ s, i, delay }: { s: typeof services[0]; i: number; delay: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay }}
+      className="group"
+    >
+      {i > 0 && <div style={{ height: 1, background: "#E5E0D8", marginBottom: 28 }} />}
+      <div className="flex items-start gap-4 pb-7">
+        <span style={{ fontSize: 18, lineHeight: 1, paddingTop: 3, color: "hsl(192 73% 20%)" }}>{s.icon}</span>
+        <div>
+          <p
+            className="font-sans-dm mb-1 transition-all duration-200 group-hover:translate-x-1 group-hover:text-primary"
+            style={{ fontSize: 15, fontWeight: 500, color: "#1A1A1A", transitionProperty: "transform, color" }}
+          >
+            {s.title}
+          </p>
+          <p style={{ fontSize: 14, color: "#6B6B6B", lineHeight: 1.6, fontFamily: "DM Sans, sans-serif" }}>{s.desc}</p>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function ServicesSection() {
   return (
-    <section className="py-24 bg-muted/40">
-      <div className="container mx-auto px-4">
+    <section id="services" className="bg-section-alt" style={{ paddingTop: 120, paddingBottom: 120 }}>
+      <div style={{ maxWidth: 1100, margin: "0 auto", paddingLeft: 32, paddingRight: 32 }}>
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-16"
+          style={{ maxWidth: 480 }}
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-primary text-sm font-semibold mb-4">
-            Our Services
-          </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-primary mb-4">
-            What We Treat
+          <p className="label-caps mb-4">What We Offer</p>
+          <h2 className="font-display text-primary" style={{ fontSize: 42, fontWeight: 400, lineHeight: 1.15 }}>
+            Comprehensive Care,<br />All Under One Roof
           </h2>
-          <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            From routine cleanings to advanced restorations — we offer comprehensive dental care under one roof.
-          </p>
+          <div className="section-divider mt-5" />
         </motion.div>
 
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {services.map((s) => (
-            <motion.div
-              key={s.title}
-              variants={item}
-              whileHover={{ y: -6, boxShadow: "0 8px 30px hsl(192 73% 20% / 0.16)" }}
-              className="bg-card rounded-2xl p-7 shadow-card border border-border/50 cursor-default transition-all duration-300 group"
-            >
-              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-2xl mb-5 group-hover:bg-accent/15 transition-colors">
-                {s.emoji}
-              </div>
-              <h3 className="font-bold text-primary text-lg mb-2">{s.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
-            </motion.div>
-          ))}
-        </motion.div>
+        {/* Two-column list — asymmetric editorial */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 lg:gap-x-24">
+          <div>
+            {leftCol.map((s, i) => (
+              <ServiceItem key={s.title} s={s} i={i} delay={i * 0.08} />
+            ))}
+          </div>
+          <div className="mt-8 md:mt-0 md:pt-2">
+            {rightCol.map((s, i) => (
+              <ServiceItem key={s.title} s={s} i={i} delay={i * 0.08 + 0.12} />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

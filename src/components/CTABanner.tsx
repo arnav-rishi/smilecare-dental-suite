@@ -3,32 +3,56 @@ import { motion } from "framer-motion";
 
 export default function CTABanner() {
   return (
-    <section className="py-20 bg-gradient-to-br from-primary to-teal-light relative overflow-hidden">
-      {/* Decorative */}
-      <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-accent/15 blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-white/5 blur-2xl" />
-
-      <div className="container mx-auto px-4 relative z-10">
+    <section style={{ backgroundColor: "hsl(192 73% 20%)", paddingTop: 100, paddingBottom: 100 }}>
+      <div style={{ maxWidth: 1100, margin: "0 auto", paddingLeft: 32, paddingRight: 32 }}>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto"
+          className="flex flex-col md:flex-row items-center justify-between gap-10"
         >
-          <div className="text-5xl mb-6">🦷</div>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-primary-foreground mb-4">
-            Ready for a Healthier Smile?
-          </h2>
-          <p className="text-primary-foreground/75 text-lg mb-8">
-            Don't wait for dental problems to worsen. Book your appointment today and let us help you smile with confidence.
-          </p>
-          <Link
-            to="/appointment"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-accent text-white font-bold text-base hover:bg-accent/90 transition-all hover:-translate-y-1 shadow-float"
-          >
-            Book Your Appointment →
-          </Link>
+          <div style={{ maxWidth: 540 }}>
+            <p className="label-caps mb-4" style={{ color: "hsl(38 50% 61%)" }}>
+              Take the next step
+            </p>
+            <h2
+              className="font-display"
+              style={{ fontSize: "clamp(28px, 3.5vw, 40px)", fontWeight: 400, color: "white", lineHeight: 1.2 }}
+            >
+              Ready for a Healthier,<br />
+              <em>More Confident Smile?</em>
+            </h2>
+          </div>
+          <div className="flex-shrink-0">
+            <Link
+              to="/appointment"
+              style={{
+                fontFamily: "DM Sans, sans-serif",
+                fontSize: 14,
+                fontWeight: 500,
+                letterSpacing: "0.06em",
+                border: "1.5px solid hsl(38 50% 61%)",
+                color: "hsl(38 50% 61%)",
+                background: "transparent",
+                borderRadius: 9999,
+                padding: "14px 36px",
+                display: "inline-block",
+                transition: "background 300ms ease, color 300ms ease",
+                whiteSpace: "nowrap",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.background = "hsl(38 50% 61%)";
+                (e.currentTarget as HTMLElement).style.color = "white";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.background = "transparent";
+                (e.currentTarget as HTMLElement).style.color = "hsl(38 50% 61%)";
+              }}
+            >
+              Book Your Appointment →
+            </Link>
+          </div>
         </motion.div>
       </div>
     </section>
