@@ -44,7 +44,7 @@ export default function Footer() {
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.9)"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.6)"; }}
               >
-                +91 98765 43210
+                +91 8103346247
               </a>
             </div>
           </div>
