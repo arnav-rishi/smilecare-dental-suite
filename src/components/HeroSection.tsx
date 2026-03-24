@@ -61,69 +61,18 @@ export default function HeroSection() {
         className="hidden lg:block absolute right-0 top-0 bottom-[-60px] w-[48%]"
         style={{ borderRadius: "40px 0 0 40px", overflow: "hidden" }}
       >
-        {/* Clinic visual placeholder */}
+        <img
+          src={doctorImg}
+          alt="Dr. Ranu Sharma — SmileCare Dental"
+          className="w-full h-full object-cover object-top"
+        />
+        {/* Subtle gradient overlay at bottom for depth */}
         <div
-          className="w-full h-full flex flex-col items-center justify-center relative"
-          style={{ background: "linear-gradient(160deg, hsl(192 40% 88%) 0%, hsl(192 60% 78%) 50%, hsl(192 73% 66%) 100%)" }}
-        >
-          {/* Decorative overlays */}
-          <div
-            className="absolute inset-0 opacity-20"
-            style={{
-              backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,255,255,0.08) 40px, rgba(255,255,255,0.08) 80px)`,
-            }}
-          />
-
-          {/* Mock clinic card */}
-          <div
-            className="relative z-10 mx-8"
-            style={{
-              background: "rgba(255,255,255,0.88)",
-              backdropFilter: "blur(12px)",
-              borderRadius: "20px",
-              padding: "36px",
-              maxWidth: "360px",
-              boxShadow: "0 16px 64px rgba(13,79,92,0.18)",
-            }}
-          >
-            <p className="label-caps mb-4" style={{ color: "hsl(var(--gold))" }}>SmileCare Dental</p>
-            <div className="flex items-start gap-4 mb-6">
-              <div
-                style={{
-                  width: 52,
-                  height: 52,
-                  borderRadius: "50%",
-                  background: "hsl(192 73% 20% / 0.1)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: 24,
-                  flexShrink: 0,
-                }}
-              >
-                🦷
-              </div>
-              <div>
-                <p className="font-display text-primary" style={{ fontSize: 18, fontWeight: 500 }}>Dr. Ranu Sharma</p>
-                <p style={{ fontSize: 13, color: "#6B6B6B", fontFamily: "DM Sans, sans-serif" }}>BDS, MDS — 15+ Years Experience</p>
-              </div>
-            </div>
-            <div className="grid grid-cols-3 gap-3 mb-6">
-              {[{ n: "1200+", l: "Patients" }, { n: "15+", l: "Years" }, { n: "5.0", l: "Rating" }].map((s) => (
-                <div key={s.l} style={{ textAlign: "center", padding: "10px 4px", borderRadius: 10, background: "#F7F4EF" }}>
-                  <div className="font-display text-primary" style={{ fontSize: 18, fontWeight: 500 }}>{s.n}</div>
-                  <div style={{ fontSize: 11, color: "#6B6B6B", fontFamily: "DM Sans, sans-serif", textTransform: "uppercase", letterSpacing: "0.1em" }}>{s.l}</div>
-                </div>
-              ))}
-            </div>
-            <div style={{ borderTop: "1px solid #E8E2D9", paddingTop: 16 }}>
-              <p style={{ fontSize: 12, color: "#6B6B6B", fontFamily: "DM Sans, sans-serif", textAlign: "center" }}>
-                Next available: <span style={{ color: "hsl(192 73% 20%)", fontWeight: 500 }}>Today · 3:00 PM onwards</span>
-              </p>
-            </div>
-          </div>
-
-        </div>
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: "linear-gradient(to top, rgba(13,79,92,0.18) 0%, transparent 40%)",
+          }}
+        />
       </motion.div>
     </section>
   );

@@ -41,75 +41,45 @@ export default function About() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           className="hidden lg:block"
-          style={{ width: "45%", position: "relative", flexShrink: 0 }}
+          style={{ width: "45%", position: "relative", flexShrink: 0, overflow: "hidden" }}
         >
+          <img
+            src={doctorImg}
+            alt="Dr. Ranu Sharma — SmileCare Dental"
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "center top",
+            }}
+          />
+          {/* Subtle gradient overlay for depth */}
           <div
             style={{
               position: "absolute",
               inset: 0,
-              background: "linear-gradient(160deg, hsl(192 40% 80%) 0%, hsl(192 55% 65%) 60%, hsl(192 73% 50%) 100%)",
-              display: "flex",
-              alignItems: "flex-end",
-              justifyContent: "center",
-              paddingBottom: 48,
+              background: "linear-gradient(to top, rgba(13,79,92,0.22) 0%, transparent 50%)",
+            }}
+          />
+          {/* Floating credential badge */}
+          <motion.div
+            animate={{ y: [0, -8, 0] }}
+            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+            style={{
+              background: "white",
+              borderRadius: 14,
+              padding: "14px 22px",
+              position: "absolute",
+              bottom: 48,
+              right: -24,
+              zIndex: 10,
             }}
           >
-            {/* Decorative overlay */}
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                backgroundImage: `radial-gradient(circle at 30% 70%, rgba(255,255,255,0.12) 0%, transparent 60%)`,
-              }}
-            />
-            {/* Doctor placeholder visual */}
-            <div
-              style={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -60%)",
-                textAlign: "center",
-              }}
-            >
-              <div
-                style={{
-                  width: 140,
-                  height: 140,
-                  borderRadius: "50%",
-                  background: "rgba(255,255,255,0.18)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: 64,
-                  margin: "0 auto 20px",
-                  border: "2px solid rgba(255,255,255,0.3)",
-                }}
-              >
-                👨‍⚕️
-              </div>
-              <p style={{ fontFamily: "Playfair Display, serif", fontSize: 20, color: "white", fontWeight: 400 }}>Dr. Arjun Mehta</p>
-              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 12, color: "rgba(255,255,255,0.75)", letterSpacing: "0.12em", textTransform: "uppercase", marginTop: 6 }}>BDS, MDS – Orthodontics</p>
-            </div>
-            {/* Floating credential */}
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              style={{
-                background: "white",
-                borderRadius: 14,
-                padding: "14px 22px",
-                boxShadow: "0 8px 32px rgba(13,79,92,0.18)",
-                position: "absolute",
-                bottom: 48,
-                right: -24,
-                zIndex: 10,
-              }}
-            >
-              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 12, fontWeight: 500, color: "#1A1A1A" }}>1200+ Patients Treated</p>
-              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 11, color: "#6B6B6B", marginTop: 2 }}>15+ Years of Practice</p>
-            </motion.div>
-          </div>
+            <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 12, fontWeight: 500, color: "#1A1A1A" }}>1200+ Patients Treated</p>
+            <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 11, color: "#6B6B6B", marginTop: 2 }}>15+ Years of Practice</p>
+          </motion.div>
         </motion.div>
 
         {/* Right bio — 55%, lots of top padding */}
