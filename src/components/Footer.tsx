@@ -27,7 +27,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-4">
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/918103346247"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover-slide-link"
@@ -39,7 +39,7 @@ export default function Footer() {
                 WhatsApp
               </a>
               <a
-                href="tel:+919876543210"
+                href="tel:+918103346247"
                 style={{ color: "rgba(255,255,255,0.6)", fontSize: 13, fontFamily: "DM Sans, sans-serif", transition: "color 250ms ease" }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.9)"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.6)"; }}
