@@ -58,7 +58,7 @@ function FloatingLabelInput({
   placeholder?: string;
 }) {
   const [focused, setFocused] = useState(false);
-  const isActive = focused || value;
+  const isActive = focused || value || type === "date" || type === "time";
   return (
     <div style={{ position: "relative", marginBottom: 28 }}>
       <label
