@@ -36,7 +36,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-[72px]">
           {/* Logo */}
           <Link to="/" className="font-display text-xl text-primary" style={{ letterSpacing: "-0.01em" }}>
-            SmileCare Dental
+            Dr. Sharma Dental Clinic
           </Link>
 
           {/* Desktop Nav */}
