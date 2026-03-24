@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import doctorImg from "@/assets/doctor.png";
 
 export default function HeroSection() {
   return (

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
+import doctorImg from "@/assets/doctor.png";
 
 const qualifications = [
   { degree: "BDS", school: "Government Dental College, Mumbai", year: "2006" },
