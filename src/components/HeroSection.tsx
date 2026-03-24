@@ -103,7 +103,7 @@ export default function HeroSection() {
                 🦷
               </div>
               <div>
-                <p className="font-display text-primary" style={{ fontSize: 18, fontWeight: 500 }}>Dr. Arjun Mehta</p>
+                <p className="font-display text-primary" style={{ fontSize: 18, fontWeight: 500 }}>Dr. Ranu Sharma</p>
                 <p style={{ fontSize: 13, color: "#6B6B6B", fontFamily: "DM Sans, sans-serif" }}>BDS, MDS — 15+ Years Experience</p>
               </div>
             </div>
