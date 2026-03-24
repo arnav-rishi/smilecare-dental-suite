@@ -242,7 +242,7 @@ export default function Appointment() {
                 Message us directly and our team will help you schedule instantly.
               </p>
               <a
-                href="https://wa.me/919876543210?text=Hi%2C%20I%20would%20like%20to%20book%20a%20dental%20appointment."
+                href="https://wa.me/918103346247?text=Hi%2C%20I%20would%20like%20to%20book%20a%20dental%20appointment."
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -284,7 +284,7 @@ export default function Appointment() {
                 Prefer talking to someone? Call us directly during clinic hours (9 AM – 7 PM).
               </p>
               <a
-                href="tel:+919876543210"
+                href="tel:+918103346247"
                 className="pill-outline-btn"
                 style={{ fontSize: 13 }}
               >
@@ -337,7 +337,7 @@ export default function Appointment() {
                     <form onSubmit={handleSubmit}>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10">
                         <FloatingLabelInput label="Full Name" name="name" value={form.name} onChange={handleChange} required placeholder="Priya Sharma" />
-                        <FloatingLabelInput label="Phone Number" name="phone" type="tel" value={form.phone} onChange={handleChange} required placeholder="+91 98765 43210" />
+                        <FloatingLabelInput label="Phone Number" name="phone" type="tel" value={form.phone} onChange={handleChange} required placeholder="+91 81033 46247" />
                         <FloatingLabelInput label="Preferred Date" name="date" type="date" value={form.date} onChange={handleChange} required />
                         <FloatingLabelSelect
                           label="Preferred Time"
@@ -437,8 +437,8 @@ export default function Appointment() {
             </div>
             <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 13, color: "#6B6B6B", marginTop: 20 }}>
               Emergency cases:{" "}
-              <a href="tel:+919876543210" style={{ color: "hsl(192 73% 20%)", fontWeight: 500, textDecoration: "none" }}>
-                +91 98765 43210
+              <a href="tel:+918103346247" style={{ color: "hsl(192 73% 20%)", fontWeight: 500, textDecoration: "none" }}>
+                +91 81033 46247
               </a>
             </p>
           </motion.div>
