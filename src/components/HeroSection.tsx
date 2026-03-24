@@ -122,29 +122,6 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Floating badge */}
-          <motion.div
-            animate={{ y: [0, -8, 0] }}
-            transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut" }}
-            style={{
-              position: "absolute",
-              bottom: 80,
-              left: 24,
-              background: "white",
-              borderRadius: 14,
-              padding: "12px 18px",
-              boxShadow: "0 8px 32px rgba(13,79,92,0.14)",
-              display: "flex",
-              alignItems: "center",
-              gap: 10,
-            }}
-          >
-            <span style={{ fontSize: 18 }}>✅</span>
-            <div>
-              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 12, fontWeight: 500, color: "#1A1A1A" }}>ISO Certified Clinic</p>
-              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 11, color: "#6B6B6B" }}>World-class equipment</p>
-            </div>
-          </motion.div>
         </div>
       </motion.div>
     </section>
