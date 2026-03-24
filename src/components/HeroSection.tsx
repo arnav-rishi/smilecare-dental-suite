@@ -17,7 +17,7 @@ export default function HeroSection() {
           className="max-w-[560px]"
         >
           {/* Gold label */}
-          <p className="label-caps mb-8">Trusted Dental Care · Mumbai</p>
+          <p className="label-caps mb-8">TRUSTED DENTAL CARE · RAIGARH</p>
 
           {/* H1 */}
           <h1
