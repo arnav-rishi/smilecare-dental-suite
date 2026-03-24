@@ -110,7 +110,7 @@ function FloatingLabelSelect({
   options: { value: string; label: string }[];
 }) {
   const [focused, setFocused] = useState(false);
-  const isActive = focused || value;
+  const isActive = true; // selects always show "Select…" so label always floats
   return (
     <div style={{ position: "relative", marginBottom: 28 }}>
       <label
